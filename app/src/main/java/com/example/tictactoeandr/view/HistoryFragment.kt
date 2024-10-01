@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tictactoeandr.R
 import com.example.tictactoeandr.databinding.FragmentBoardBinding
 import com.example.tictactoeandr.databinding.FragmentHistoryBinding
@@ -26,14 +27,14 @@ class HistoryFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-       /* historyAdapter = HistoryAdapter()
+        historyAdapter = HistoryAdapter()
         binding = FragmentHistoryBinding.inflate(inflater, container, false)
-        binding.historyRecyclerView.layoutManager = GridLayoutManager(requireContext(), 3)
+        binding.historyRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.historyRecyclerView.adapter = historyAdapter
 
         viewModel.pastGames.observe(viewLifecycleOwner) {gamesList ->
             historyAdapter.updateGameHistory(gamesList)
-        }*/
+        }
 
         return binding.root
     }
