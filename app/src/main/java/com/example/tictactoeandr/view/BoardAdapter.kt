@@ -2,7 +2,6 @@ package com.example.tictactoeandr.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tictactoeandr.R
 import com.example.tictactoeandr.databinding.BoardFieldBinding

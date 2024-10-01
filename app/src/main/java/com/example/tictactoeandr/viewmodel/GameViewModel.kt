@@ -32,6 +32,7 @@ class GameViewModel : ViewModel() {
         val player2 = Player('o', player2name)
         _players.value = mutableListOf(player1, player2)
         _currentPlayer.value = player1
+        _boardState.value = MutableList<Char>(9) {' '}
     }
 
     fun makeMove(index: Int): Boolean {
@@ -56,45 +57,35 @@ class GameViewModel : ViewModel() {
                         player.wonGames++
                     }
                 }
-                _players.value = listOfPlayers
+                _players.value = listOfPlayers ?: mutableListOf<Player>()
                 saveGame()
             }
         }
+        //TODO: Saving game that has no winner
+        /*if (checkIfGameIsWon(currentBoardState) == null && !currentBoardState.contains(' ')){
+
+        }*/
         return true
     }
-    //check if score on screen changes
-
-
-    //_boardState.value?.let { game.makeMove(index, it) }//RxJava observeOn
-    /*if(_boardState.value!!.get(index)  == ' ') {
-        var newBoard = _boardState.value
-        newBoard!!.set(index, _currentPlayer.value!!.mark)
-    }*/
-    //_boardState.value =
-
-    // Logika wykonania ruchu
-    //sprawdzenie czy pole jest wolne
-    //sprawdzenie czy gra została wygrana
-    //przełączenie currentusera na drugiego
-    //_currentPlayer.value = if (_currentPlayer.value == _player1.value) _player2.value else _player1.value
-    //checkWinner()
-
 
     fun checkIfGameIsWon(list: MutableList<Char>): Char? {
 
         val marks = "xo"
         for (mark: Char in marks) {
-            for (i in list.indices step 2) {
-                if (list[i] == mark && list[i + 1] == mark && list[i + 2] == mark)
+            //horizontal
+            for (i in 0..2) {
+                var index = i * 3
+                if (list[index] == mark && list[index + 1] == mark && list[index + 2] == mark)
                     return mark
             }
 
+            //vertical
             for (i in 0..2) {
                 if (list[i] == mark && list[i + 3] == mark && list[i + 6] == mark)
                     return mark
-
             }
 
+            //cross
             if ((list[0] == mark && list[4] == mark && list[8] == mark) || (list[2] == mark && list[4] == mark && list[6] == mark))
                 return mark
         }
@@ -103,7 +94,9 @@ class GameViewModel : ViewModel() {
 
     fun resetGame() {
         _boardState.value = MutableList(9) { ' ' }
+        if (_winner.value != null ) _currentPlayer.value = _winner.value
         _winner.value = null
+
     }
 
     fun saveGame() {

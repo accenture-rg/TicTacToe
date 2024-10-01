@@ -6,12 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.tictactoeandr.R
+import com.example.tictactoeandr.databinding.FragmentBoardBinding
+import com.example.tictactoeandr.databinding.FragmentHistoryBinding
 import com.example.tictactoeandr.viewmodel.GameViewModel
 
 class HistoryFragment : Fragment() {
 
     private val viewModel: GameViewModel by activityViewModels()
+    private lateinit var binding: FragmentHistoryBinding
+    private lateinit var historyAdapter: HistoryAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,8 +26,16 @@ class HistoryFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_history, container, false)
+       /* historyAdapter = HistoryAdapter()
+        binding = FragmentHistoryBinding.inflate(inflater, container, false)
+        binding.historyRecyclerView.layoutManager = GridLayoutManager(requireContext(), 3)
+        binding.historyRecyclerView.adapter = historyAdapter
+
+        viewModel.pastGames.observe(viewLifecycleOwner) {gamesList ->
+            historyAdapter.updateGameHistory(gamesList)
+        }*/
+
+        return binding.root
     }
 
 }

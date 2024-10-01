@@ -26,12 +26,7 @@ class MenuFragment : Fragment() {
         binding = FragmentMenuBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        var player1 = arguments?.getSerializable("player1") as? Player
-        var player2 = arguments?.getSerializable("player2") as? Player
-
-
-
-        binding.buttonNewGame.setOnClickListener {
+        binding.buttonGame.setOnClickListener {
             findNavController().navigate(R.id.action_menuFragment_to_boardFragment)
         }
 

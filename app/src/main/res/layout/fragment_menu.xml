@@ -12,10 +12,10 @@
         android:gravity="center">
 
         <Button
-            android:id="@+id/buttonNewGame"
+            android:id="@+id/buttonGame"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:text="new game"/>
+            android:text="game"/>
 
         <Button
             android:id="@+id/buttonHistory"
