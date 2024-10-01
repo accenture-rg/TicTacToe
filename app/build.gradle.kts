@@ -51,5 +51,8 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation(libs.reactivex.rxjava2)
+    implementation(libs.reactivex.rxjava)
+    implementation(libs.reactivex.rxandroid)
+    implementation(libs.androidx.datastore)
+    implementation(libs.protobuf.javalite)
 }

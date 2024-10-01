@@ -8,7 +8,6 @@ import com.example.tictactoeandr.databinding.BoardFieldBinding
 
 
 class BoardAdapter(private val onClick: (Int) -> Unit): RecyclerView.Adapter<BoardAdapter.BoardViewHolder>() {
-//class BoardAdapter(private var board: List<Char>,var onClick: (Int) -> Unit): RecyclerView.Adapter<BoardAdapter.BoardViewHolder>() {
 
     private var board: List<Char> = List(9) {' '}
 

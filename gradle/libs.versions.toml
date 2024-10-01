@@ -11,10 +11,17 @@ activity = "1.8.0"
 constraintlayout = "2.1.4"
 navigationFragmentKtx = "2.8.1"
 navigationUiKtx = "2.8.1"
-rxjava = "2.0.0"
+rxjava = "3.1.5"
+rxandroid = "3.0.2"
+datastore = "1.1.1"
+protobuf-lite = "3.21.12"
+protobuf = "0.8.19"
 
 [libraries]
-reactivex-rxjava2 = { group = "io.reactivex.rxjava2", name="rxjava", version.ref = "rxjava"}
+reactivex-rxjava = { group = "io.reactivex.rxjava3", name = "rxjava", version.ref = "rxjava"}
+reactivex-rxandroid = { group = "io.reactivex.rxjava3", name = "rxandroid", version.ref = "rxandroid"}
+protobuf-javalite = { group = "com.google.protobuf", name = "protobuf-javalite", version.ref = "protobuf-lite"}
+androidx-datastore = { group = "androidx.datastore", name = "datastore", version.ref = "datastore"}
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
@@ -29,4 +36,5 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+protobuf = { id = "com.google.protobuf", version.ref = "protobuf" }
 
